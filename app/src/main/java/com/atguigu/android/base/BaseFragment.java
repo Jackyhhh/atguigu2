@@ -1,4 +1,4 @@
-package base;
+package com.atguigu.android.base;
 
 import android.content.Context;
 import android.os.Bundle;

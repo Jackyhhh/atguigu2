@@ -7,16 +7,16 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-import com.atguigu.android.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import base.BaseFragment;
-import fragment.CommonFrameFragment;
-import fragment.CustomFragment;
-import fragment.OtherFragment;
-import fragment.ThirdPartyFragment;
+import com.atguigu.android.base.BaseFragment;
+import com.atguigu.android.fragment.CommonFrameFragment;
+import com.atguigu.android.fragment.CustomFragment;
+import com.atguigu.android.fragment.OtherFragment;
+import com.atguigu.android.fragment.ThirdPartyFragment;
+
 
 //主页面
 

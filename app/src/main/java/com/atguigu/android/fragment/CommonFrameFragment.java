@@ -1,24 +1,20 @@
-package fragment;
+package com.atguigu.android.fragment;
 
-import android.graphics.Color;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.atguigu.android.R;
+import com.atguigu.android.base.BaseFragment;
 
 import Adapter.CommonFrameFragmentAdapter;
-import base.BaseFragment;
 
 public class CommonFrameFragment extends BaseFragment {
 
     private static final String TAG = CommonFrameFragment.class.getSimpleName();
-    private TextView textView;
     private ListView mListView;
 
     private String[] datas;

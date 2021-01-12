@@ -1,4 +1,4 @@
-package fragment;
+package com.atguigu.android.fragment;
 
 import android.graphics.Color;
 import android.util.Log;
@@ -6,7 +6,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
-import base.BaseFragment;
+import com.atguigu.android.base.BaseFragment;
+
 
 public class OtherFragment extends BaseFragment {
 
