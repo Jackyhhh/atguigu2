@@ -23,7 +23,6 @@ public class LauncherActivity extends Activity {
     private void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        //关闭当前页面
         finish();
     }
 }

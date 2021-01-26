@@ -1,21 +1,20 @@
 package com.atguigu.android;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.atguigu.android.base.BaseFragment;
 import com.atguigu.android.fragment.CommonFrameFragment;
 import com.atguigu.android.fragment.CustomFragment;
 import com.atguigu.android.fragment.OtherFragment;
 import com.atguigu.android.fragment.ThirdPartyFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 //主页面
