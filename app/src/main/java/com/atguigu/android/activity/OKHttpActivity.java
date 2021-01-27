@@ -27,6 +27,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.BitmapCallback;
 import com.zhy.http.okhttp.callback.FileCallBack;
 import com.zhy.http.okhttp.callback.StringCallback;
+import com.zhy.http.okhttp.log.LoggerInterceptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,6 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
+import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -65,7 +67,12 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     private Button btn_image;
     private Button btn_image_list;
     private ImageView iv_icon;
-    private final OkHttpClient client = new OkHttpClient();
+    LoggerInterceptor loggerInterceptor = new LoggerInterceptor(TAG,true);
+    private final OkHttpClient client = new OkHttpClient.Builder()
+            //添加拦截器
+            .addInterceptor(new LoggerInterceptor(TAG,true))
+            .build();
+
 
     private static final String TAG = OKHttpActivity.class.getSimpleName();
 
@@ -109,6 +116,9 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
         btn_uploadfile.setOnClickListener(this);
         btn_image.setOnClickListener(this);
         btn_image_list.setOnClickListener(this);
+
+        //初始化OkHttpClient
+        OkHttpUtils.initClient(client);
     }
 
     @Override
