@@ -35,7 +35,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
-import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -67,10 +66,10 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     private Button btn_image;
     private Button btn_image_list;
     private ImageView iv_icon;
-    LoggerInterceptor loggerInterceptor = new LoggerInterceptor(TAG,true);
+    LoggerInterceptor loggerInterceptor = new LoggerInterceptor(TAG, true);
     private final OkHttpClient client = new OkHttpClient.Builder()
             //添加拦截器
-            .addInterceptor(new LoggerInterceptor(TAG,true))
+            .addInterceptor(new LoggerInterceptor(TAG, true))
             .build();
 
 
@@ -82,11 +81,11 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
         public boolean handleMessage(@NonNull Message msg) {
             switch (msg.what) {
                 case GET:
-                    tv_result.setText((String)msg.obj);
+                    tv_result.setText((String) msg.obj);
                     break;
 
                 case POST:
-                    tv_result.setText((String)msg.obj);
+                    tv_result.setText((String) msg.obj);
                     break;
 
                 case 3:
@@ -95,6 +94,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
             return true;
         }
     });
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,7 +123,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_get_post:
                 tv_result.setText("");
 //                getDataFormGet();
@@ -156,7 +156,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.btn_image_list://请求列表中的图片
-                Intent intent = new Intent(OKHttpActivity.this,OKHttpListActivity.class);
+                Intent intent = new Intent(OKHttpActivity.this, OKHttpListActivity.class);
                 startActivity(intent);
                 break;
 
@@ -192,7 +192,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     private void getDataPostByOkhttpUtils() {
 
         //链接已经失效了，暂时没有找到新的代替
-        String  url = "http://api.m.mtime.cn/PageSubArea/TrailerList.api";
+        String url = "http://api.m.mtime.cn/PageSubArea/TrailerList.api";
         OkHttpUtils
                 .post()
                 .url(url)
@@ -208,11 +208,11 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
         String mBaseUrl = "http://192.168.39.84:8080/FileUpload/FileUploadServlet";
         File file = new File(Environment.getExternalStorageDirectory(), "afu.png");
         File file2 = new File(Environment.getExternalStorageDirectory(), "test.txt");
-        if (!file.exists()||!file2.exists()){
-            Toast.makeText(OKHttpActivity.this,"文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
+        if (!file.exists() || !file2.exists()) {
+            Toast.makeText(OKHttpActivity.this, "文件不存在，请修改文件路径", Toast.LENGTH_SHORT).show();
             return;
         }
-        Map<String,String> params = new HashMap<>();
+        Map<String, String> params = new HashMap<>();
         params.put("username", "Jackyhhh");
         params.put("password", "123");
 
@@ -230,8 +230,8 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     /**
      * 使用okhttp-utils下载大文件
      */
-    private void  downloadFile() {
-        new Thread(){
+    private void downloadFile() {
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -272,7 +272,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
                         .execute(new FileCallBack(Environment.getExternalStorageDirectory().getAbsolutePath(), "okhttp-utils-test.mp4") {
                             @Override
                             public void inProgress(float progress, long total, int id) {
-                                mProgressBar.setProgress((int)(100 * progress));
+                                mProgressBar.setProgress((int) (100 * progress));
                                 Log.e(TAG, "inProgress :" + (int) (100 * progress));
                             }
 
@@ -301,6 +301,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
                 .build()
                 .execute(new MyStringCallback());
     }
+
     public class MyStringCallback extends StringCallback {
 
         @Override
@@ -351,7 +352,7 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
                 super.run();
                 try {
                     String result = post("https://www.lagou.com/jobs/positionAjax.json", "");
-                    Log.e(TAG,result);
+                    Log.e(TAG, result);
                     Message msg = Message.obtain();
                     msg.what = POST;
                     msg.obj = result;
@@ -364,23 +365,23 @@ public class OKHttpActivity extends Activity implements View.OnClickListener {
     }
 
 
-
     /**
      * 使用get请求网络数据
      */
-    private void getDataFormGet(){
-        new Thread(){
+    private void getDataFormGet() {
+        new Thread() {
             @Override
             public void run() {
                 super.run();
                 try {
                     //原url失效，采用新的代替;
                     String result = get("https://www.it610.com/article/1282460251861303296.htm");
-                    Log.e(TAG,result);
+                    Log.e(TAG, result);
                     Message message = Message.obtain();
                     message.what = GET;
                     message.obj = result;
-                    handler.sendMessage(message);;
+                    handler.sendMessage(message);
+                    ;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

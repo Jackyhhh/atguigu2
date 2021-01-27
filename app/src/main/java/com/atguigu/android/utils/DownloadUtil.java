@@ -91,7 +91,7 @@ public class DownloadUtil {
                     listener.onDownloadSuccess(file);
                 } catch (Exception e) {
                     listener.onDownloadFailed(e);
-                }finally {
+                } finally {
 
                     try {
                         if (is != null) {
@@ -112,7 +112,7 @@ public class DownloadUtil {
     }
 
 
-    public interface OnDownloadListener{
+    public interface OnDownloadListener {
 
         /**
          * 下载成功之后的文件

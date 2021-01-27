@@ -34,5 +34,6 @@ public abstract class BaseFragment extends Fragment {
     }
 
     //需要初始化数据时重写
-    protected void initData() {}
+    protected void initData() {
+    }
 }

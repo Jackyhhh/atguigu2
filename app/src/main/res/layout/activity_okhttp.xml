@@ -59,9 +59,6 @@
         android:text="使用okhttp-utils在列表中请求图片" />
 
 
-
-
-
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
@@ -79,7 +76,6 @@
         android:id="@+id/iv_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 
 
 </LinearLayout>

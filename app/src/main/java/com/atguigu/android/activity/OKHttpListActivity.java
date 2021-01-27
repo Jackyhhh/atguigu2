@@ -103,13 +103,13 @@ public class OKHttpListActivity extends Activity {
         DataBean dataBean = parsedJson(json);
         List<DataBean.ItemData> datas = dataBean.getTrailers();
 
-        if(datas != null && datas.size() >0) {
-           //有数据
-           tv_nodata.setVisibility(View.GONE);
-           //显示适配器
+        if (datas != null && datas.size() > 0) {
+            //有数据
+            tv_nodata.setVisibility(View.GONE);
+            //显示适配器
             adapter = new OKHttpListAdapter(OKHttpListActivity.this, datas);
             listView.setAdapter(adapter);
-        }else {
+        } else {
             //没有数据
             tv_nodata.setVisibility(View.VISIBLE);
         }
@@ -118,6 +118,7 @@ public class OKHttpListActivity extends Activity {
 
     /**
      * 解析和显示数据
+     *
      * @param response
      */
     private DataBean parsedJson(String response) {

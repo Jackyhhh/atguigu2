@@ -13,7 +13,7 @@ public class CommonFrameFragmentAdapter extends BaseAdapter {
     private final Context mContext;
     private final String[] mDatas;
 
-    public CommonFrameFragmentAdapter(Context context,String[] datas){
+    public CommonFrameFragmentAdapter(Context context, String[] datas) {
         this.mContext = context;
         this.mDatas = datas;
     }

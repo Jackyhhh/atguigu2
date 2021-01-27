@@ -27,6 +27,7 @@ public class OKHttpListAdapter extends BaseAdapter {
         this.context = context;
         this.datas = datas;
     }
+
     @Override
     public int getCount() {
         return datas.size();
@@ -45,14 +46,14 @@ public class OKHttpListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder viewHolder;
-        if (view == null){
+        if (view == null) {
             View.inflate(context, R.layout.item_okhttp_list_image, null);
             viewHolder = new ViewHolder();
             viewHolder.iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
             viewHolder.tv_name = (TextView) view.findViewById(R.id.tv_name);
             viewHolder.tv_desc = (TextView) view.findViewById(R.id.tv_desc);
             view.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         //根据位置得到数据
@@ -72,7 +73,7 @@ public class OKHttpListAdapter extends BaseAdapter {
                 .execute(new BitmapCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.d("TAG", "onError: "+ e.getMessage());
+                        Log.d("TAG", "onError: " + e.getMessage());
                     }
 
                     @Override
@@ -85,7 +86,7 @@ public class OKHttpListAdapter extends BaseAdapter {
 
     }
 
-    static class ViewHolder{
+    static class ViewHolder {
         ImageView iv_icon;
         TextView tv_name;
         TextView tv_desc;

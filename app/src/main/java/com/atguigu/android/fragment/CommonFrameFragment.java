@@ -23,8 +23,8 @@ public class CommonFrameFragment extends BaseFragment {
 
     @Override
     protected View initView() {
-        Log.e(TAG,"常用框架Fragment页面被初始化了...");
-        View view = View.inflate(mContext,R.layout.fragment_common_frame,null);
+        Log.e(TAG, "常用框架Fragment页面被初始化了...");
+        View view = View.inflate(mContext, R.layout.fragment_common_frame, null);
         mListView = (ListView) view.findViewById(R.id.listview);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -34,7 +34,7 @@ public class CommonFrameFragment extends BaseFragment {
                     Intent intent = new Intent(mContext, OKHttpActivity.class);
                     mContext.startActivity(intent);
                 }
-                Toast.makeText(mContext, "data=="+data, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "data==" + data, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -44,9 +44,9 @@ public class CommonFrameFragment extends BaseFragment {
     @Override
     protected void initData() {
         super.initData();
-        Log.e(TAG,"常用框架数据被初始化了...");
-        datas = new String[]{"OKHttp", "xUtils3","Retrofit2","Fresco","Glide","greenDao","RxJava","volley","Gson","FastJson","picasso","evenBus","jcvideoplayer","pulltorefresh","Expandablelistview","UniversalVideoView","....."};
-        adapter = new CommonFrameFragmentAdapter(mContext,datas);
+        Log.e(TAG, "常用框架数据被初始化了...");
+        datas = new String[]{"OKHttp", "xUtils3", "Retrofit2", "Fresco", "Glide", "greenDao", "RxJava", "volley", "Gson", "FastJson", "picasso", "evenBus", "jcvideoplayer", "pulltorefresh", "Expandablelistview", "UniversalVideoView", "....."};
+        adapter = new CommonFrameFragmentAdapter(mContext, datas);
         mListView.setAdapter(adapter);
 
     }

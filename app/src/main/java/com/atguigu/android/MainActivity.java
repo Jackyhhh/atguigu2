@@ -51,11 +51,11 @@ public class MainActivity extends FragmentActivity {
         mRg_main.check(R.id.rb_common_frame);
     }
 
-    class MyOnCheckedChangeListener implements RadioGroup.OnCheckedChangeListener{
+    class MyOnCheckedChangeListener implements RadioGroup.OnCheckedChangeListener {
 
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            switch (checkedId){
+            switch (checkedId) {
                 case R.id.rb_common_frame://常用框架
                     position = 0;
                     break;
@@ -76,7 +76,7 @@ public class MainActivity extends FragmentActivity {
             BaseFragment to = getFragment();
 
             //switch
-            switchFragment(mContent,to);
+            switchFragment(mContent, to);
 
         }
     }
@@ -87,23 +87,23 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void switchFragment(Fragment from, Fragment to) {
-        if (from != to){
+        if (from != to) {
             mContent = to;
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-            if (!to.isAdded()){
-                if (from !=null){
+            if (!to.isAdded()) {
+                if (from != null) {
                     fragmentTransaction.hide(from);
                 }
-                if (to != null){
-                    fragmentTransaction.add(R.id.fl_content,to).commit();
+                if (to != null) {
+                    fragmentTransaction.add(R.id.fl_content, to).commit();
                 }
-            }else {
-                if (from != null){
+            } else {
+                if (from != null) {
                     fragmentTransaction.hide(from);
                 }
 
-                if(to != null){
+                if (to != null) {
                     fragmentTransaction.show(to).commit();
                 }
 
